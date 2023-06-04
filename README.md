@@ -2,85 +2,239 @@
 
 GPT-Patois is a structured pseudo-language designed to enhance the control over interactions with GPT models. It offers a robust and flexible way to guide model behavior and customize responses with precision.
 
-## Specification
+-- 
 
-1. General Structure
+## Specifications 
 
-A typical GPT-Patois control block looks like this:
+GPT-Patois uses control blocks to define the model's conversation context, role, and more. Each block follows this general structure:
 
 BLOCK_TYPE {
-    Parameter1: "Value",
-    Parameter2: "Value",
-    ...
+Parameter1: "Value",
+Parameter2: "Value",
+...
 }
 
 The following sections outline each block type, its purpose, and the possible parameters it may contain.
 
-2.1 Conversation Block (CB)
+Conversation Block (CB)
 This block sets the overall context for the conversation. It includes the parameters for Personality, Topic, Focus, Detail, Characters, and Event.
+Example:
 
-2.2 Role Block (RB)
+```json
+CB {
+    "Personality": "friendly",
+    "Topic": "technology",
+    "Focus": "artificial intelligence",
+    "Detail": "deep learning",
+    "Characters": ["AI researcher", "Software engineer"],
+    "Event": "Tech conference"
+}
+```
+
+Role Block (RB)
 This block defines the role the AI should take in the conversation, with parameters such as Role to define the assistant's role.
+Example:
 
-2.3 Prompt Block (PB)
+```json
+RB {
+    "Role": "guide"
+}
+```
+
+Prompt Block (PB)
 This block contains the user's prompt or command, including the parameter Prompt which holds the user's question or instruction.
+Example:
 
-2.4 Emotion Block (EB)
+```json
+PB {
+    "Prompt": "Explain the concept of deep learning."
+}
+```
+
+Emotion Block (EB)
 The block sets the emotional tone for the AI's responses, containing the Emotion parameter to set the emotional tone of the assistant.
+Example:
 
-2.5 Knowledge Block (KB)
+```json
+EB {
+    "Emotion": "enthusiastic"
+}
+```
+
+Knowledge Block (KB)
 This block specifies the domain of knowledge from which the assistant should draw. It contains the Domain parameter which sets the knowledge domain.
+Example:
 
-2.6 Time Block (TB)
+```json
+KB {
+    "Domain": "machine learning"
+}
+```
+
+Time Block (TB)
 This block sets a temporal context for the assistant's responses, with a Time parameter to define a specific time or time period.
+Example:
 
-2.7 Location Block (LB)
+```json
+TB {
+    "Time": "21st Century"
+}
+```
+
+Location Block (LB)
 This block sets a location context for the AI's responses, containing a Location parameter to set a specific geographical context.
+Example:
 
-2.8 Factuality Block (FB)
+```json
+LB {
+    "Location": "Silicon Valley, USA"
+}
+```
+
+Factuality Block (FB)
 This block controls the level of factual accuracy in the assistant's responses, with Factuality as its parameter to set the level of factual accuracy.
+Example:
 
-2.9 Style Block (SB)
+```json
+FB {
+    "Factuality": "high"
+}
+```
+
+Style Block (SB)
 This block controls stylistic aspects of the assistant's responses, with Style and Verbosity as its parameters.
+Example:
 
-2.10 Detail Level Block (DLB)
+```json
+SB {
+    "Style": "formal",
+    "Verbosity": "concise"
+}
+```
+
+Detail Level Block (DLB)
 This block controls the level of detail in the assistant's responses, with Detail as its parameter to control the level of detail in the assistant's responses.
+Example:
 
-2.11 Language Block (LangB)
+```json
+DLB {
+    "Detail": "high"
+}
+```
+
+Language Block (LangB)
 This block sets the language of the assistant's responses, containing Language as its parameter.
+Example:
 
-2.12 Bias Control Block (BCB)
+```json
+LangB {
+    "Language": "English"
+}
+```
+
+Bias Control Block (BCB)
 This block allows controlling any potential bias in the assistant's responses, with Bias as its parameter.
+Example:
 
-2.13 Genre Block (GB)
+```json
+BCB {
+    "Bias": "neutral"
+}
+```
+
+Genre Block (GB)
 This block sets a specific genre for story generation or other creative writing tasks, containing Genre as its parameter.
+Example:
 
-2.14 Sensory Detail Block (SDB)
+```json
+GB {
+    "Genre": "science fiction"
+}
+```
+
+Sensory Detail Block (SDB)
 This block sets the level of sensory detail in the assistant's responses, containing SensoryDetail as its parameter.
+Example:
 
-2.15 Imagination Block (IB)
+```json
+SDB {
+    "SensoryDetail": "high"
+}
+```
+
+Imagination Block (IB)
 This block controls the level of imagination and creativity in the assistant's responses, with Imagination as its parameter.
+Example:
 
-2.16 Fact Check Block (FCB)
+```json
+IB {
+    "Imagination": "high"
+}
+```
+
+Fact Check Block (FCB)
 This block instructs the assistant to fact-check a piece of information, containing Fact as its parameter.
+Example:
 
-2.17 Temporal Control Block (TCB)
+```json
+FCB {
+    "Fact": "The Turing test is a measure of a machine's ability to exhibit intelligent behavior equivalent to that of a human."
+}
+```
+
+Temporal Control Block (TCB)
 This block sets a time context for the assistant's responses, containing Time as its parameter to specify a time period.
+Example:
 
-2.18 Contextual Block (CtxB)
+```json
+TCB {
+    "Time": "Medieval times"
+}
+```
+
+Contextual Block (CtxB)
 This block provides detailed contextual information for the AI's responses, containing CurrentEvent as its parameter.
+Example:
 
-2.19 Sociolinguistic Block (SLB)
+```json
+CtxB {
+    "CurrentEvent": "The AI tech conference happening in Silicon Valley."
+}
+```
+
+Sociolinguistic Block (SLB)
 This block influences the politeness level, formality, or dialect in responses, containing Politeness as its parameter.
+Example:
 
-2.20 Sentiment Analysis Block (SAB)
+```json
+SLB {
+    "Politeness": "high"
+}
+```
+
+Sentiment Analysis Block (SAB)
 This block influences the overall sentiment of the model's responses, containing Sentiment as its parameter.
+Example:
 
-2.21 Interactive Block (IB)
+```json
+SAB {
+    "Sentiment": "positive"
+}
+```
+
+Interactive Block (IB)
 This block generates interactive elements in the conversation, containing InteractiveElement as its parameter.
+Example:
 
+```json
+IB {
+    "InteractiveElement": "poll"
+}
+```
 
-3. Nesting Feature
+--
+
+## Nesting Feature
 
 The nesting feature allows users to nest multiple blocks within each other to create complex sub-contexts. This offers more nuanced control over AI responses.
 
@@ -99,25 +253,29 @@ BLOCK_TYPE {
 
 To explain further, let's take a practical example:
 
+```json
 PB {
-    Prompt: "Describe the social and economic changes that occurred during the Industrial Revolution."
+    "Prompt": "Describe the social and economic changes that occurred during the Industrial Revolution."
 }
 CB {
-    Personality: "historian",
-    Topic: "history",
-    RB {
-        Role: "Teacher"
-    },
-    Focus: "industrial revolution",
+    "Personality": "historian",
+    "Topic": "history",
+    "RB" [
+        "Role": "Teacher"
+    ],
+    "Focus": "industrial revolution",
 }
+```
 
 In this example, a Role Block (RB) is nested inside a Conversation Block (CB). This means that within the conversation context defined by the Conversation Block, the assistant takes on a specific role as defined by the nested Role Block.
 
-The nesting feature adds another dimension to the specificity and complexity of instructions you can give to the AI model.
+--
 
 ## Contributing
 
 Contributions are welcome, please feel free to submit a pull request or create an issue for any bugs or feature requests.
+
+--
 
 ## License
 
