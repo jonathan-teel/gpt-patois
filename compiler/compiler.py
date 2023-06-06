@@ -89,6 +89,12 @@ def compile_to_gpt_patois(user_input):
     2.21 Interactive Block (IB)
     This block generates interactive elements in the conversation, containing InteractiveElement as its parameter.
 
+    2.22 Prompt Repetition Block (PRB)
+    This block manages the extent to which the AI repeats the user's prompt in its responses. It includes the parameters Repetition, ParaphraseLevel, and Echo.
+
+    2.23 Introduction Block (IntroB)
+    This block controls how the assistant introduces itself or its role in the conversation. It includes the Introduction parameter.
+
 
     3. Nesting Feature
 

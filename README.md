@@ -232,6 +232,26 @@ IB {
 }
 ```
 
+Prompt Repetition Block (PRB)
+This block manages the extent to which the AI repeats the user's prompt in its responses. It includes the parameters Repetition, ParaphraseLevel, and Echo.
+
+```json
+PRB {
+    "Repetition": "low",
+    "ParaphraseLevel": "low",
+    "Echo": "low"
+}
+```
+
+Introduction Block (IntroB)
+This block controls how the assistant introduces itself or its role in the conversation. It includes the Introduction parameter.
+
+```json
+IntroB {
+    "Introduction": "none"
+}
+```
+
 --
 
 ## Nesting Feature
@@ -260,9 +280,9 @@ PB {
 CB {
     "Personality": "historian",
     "Topic": "history",
-    "RB" [
+    "RB" {
         "Role": "Teacher"
-    ],
+    },
     "Focus": "industrial revolution",
 }
 ```
