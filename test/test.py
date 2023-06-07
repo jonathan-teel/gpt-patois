@@ -19,18 +19,12 @@ def get_response(prompt):
     return response.choices[0].message.content.strip()
 
 def grade_response(question, answer):
-    prompt = """ Using these guidelines:
-    Relevance: The response should directly address the question and stay on-topic throughout.
-    Accuracy: The information provided should be factually correct.
-    Completeness: The response should fully answer the question, without leaving out any significant details that pertain to the question.
-    Clarity: The response should be easy to understand, well-structured, and coherently organized. It should avoid unnecessary jargon or complex language, unless appropriate for the context (such as a technical question).
-    Depth: The response should provide insight beyond the basic answer, when possible. It could include nuances, different perspectives, or deeper analysis.
-    Creativity: If appropriate, the response could be evaluated on its creativity, such as providing a unique perspective, interesting examples, or an engaging style of communication.
-    
-    Grade the following answer to the provided question\n
+    prompt = """ 
+    Score the following answer based on relevance, accuracy, completeness, clarity, cepth, creativity, etc. Question: '$$QUESTION$$' Response: '$$ANSWER$$'. Provide only a score from 1 to 10 for each criterion, with 1 indicating poor performance and 10 indicating excellent performance.
     """
-    grading_prompt = f"question: '{question}' \n answer: '{answer}'."
-    grade = get_response(prompt + grading_prompt)
+    prompt = prompt.replace('$$QUESTION$$', question).replace('$$ANSWER$$', answer)
+    print(prompt)
+    grade = get_response(prompt)
     return grade
 
 def main():
@@ -43,18 +37,31 @@ def main():
     regular_responses = []
     gpt_control_responses = []
 
+    cnt = 0
+
     for question in regular_prompts:
         answer = get_response(question)
         grade = grade_response(question, answer)
         regular_responses.append({"question": question, "answer": answer, "grade": grade})
+        #if cnt > 1: break
+        cnt = cnt + 1
+
+    cnt = 0
 
     for question in gpt_control_prompts:
         answer = get_response(question)
         grade = grade_response(question, answer)
         gpt_control_responses.append({"question": question, "answer": answer, "grade": grade})
+        #if cnt > 1: break
+        cnt = cnt + 1
 
-    print("Regular Responses:", regular_responses)
-    print("GPT-Control Responses:", gpt_control_responses)
+    output = {
+        "Regular Responses": regular_responses,
+        "GPT-Control Responses": gpt_control_responses
+    }
+
+    with open('outputs_gpt4.json', 'w') as json_file:
+        json.dump(output, json_file, indent=4)
 
 if __name__ == "__main__":
     main()

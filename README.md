@@ -291,6 +291,12 @@ In this example, a Role Block (RB) is nested inside a Conversation Block (CB). T
 
 --
 
+## Project Status: Experimental and Work-In-Progress
+
+This project is currently in an experimental phase and is very much a work in progress. 
+
+--
+
 ## Contributing
 
 Contributions are welcome, please feel free to submit a pull request or create an issue for any bugs or feature requests.

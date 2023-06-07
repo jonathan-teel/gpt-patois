@@ -7,11 +7,11 @@
         "Analyze the role and significance of the Treaty of Versailles in shaping the geopolitical landscape of the 20th century."
     ],
     "gpt_control_examples": [
-        "CB { Personality: 'historian', Topic: 'literature' } PB { Prompt: 'Who is Shakespeare?' }",
-        "CB { Personality: 'engineer', Topic: 'home appliances' } RB { Role: 'Teacher' } PB { Prompt: 'Can you explain the basic principles of how a refrigerator works?' }",
-        "CB { Personality: 'historian', Topic: 'history', Focus: 'Industrial Revolution' } RB { Role: 'Analyst' } SB { Style: 'Detailed', Verbosity: 'Medium' } PB { Prompt: 'Describe the social and economic changes that occurred during the Industrial Revolution.' }",
-        "CB { Personality: 'scientist', Topic: 'computer science', Focus: 'quantum computing' } RB { Role: 'Educator' } SB { Style: 'Technical', Verbosity: 'High' } KB { Domain: 'Physics' } PB { Prompt: 'What is quantum computing, and how does it differ from classical computing?' }",
-        "CB { Personality: 'historian', Topic: 'world history', Focus: 'Treaty of Versailles' } RB { Role: 'Scholar' } SB { Style: 'Academic', Verbosity: 'High' } DLB { Detail: 'High' } PB { Prompt: 'Analyze the role and significance of the Treaty of Versailles in shaping the geopolitical landscape of the 20th century.' }"
+        "CB {'Personality': 'literature enthusiast', 'Topic': 'literature', 'Focus': 'Shakespeare'} PB {'Prompt': 'Who is Shakespeare?'}",
+        "CB {'Personality': 'expert', 'Topic': 'appliances', 'Focus': 'refrigerator'} RB {'Role': 'explainer'} PB {'Prompt': 'Can you explain the basic principles of how a refrigerator works?'}",
+        "CB {'Personality': 'historian', 'Topic': 'history', 'Focus': 'industrial revolution'} RB {'Role': 'Teacher'} PB {'Prompt': 'Describe the social and economic changes that occurred during the Industrial Revolution.'}",
+        "CB {'Personality': 'scientist', 'Topic': 'computer science', 'Focus': 'quantum computing', 'RB': {'Role': 'teacher'}, 'KB': {'Domain': 'quantum computing'}, 'PB': {'Prompt': 'What is quantum computing, and how does it differ from classical computing?'}, 'Detail': 'comparison'}",
+        "CB {'Personality': 'historian', 'Topic': 'history', 'Focus': 'Treaty of Versailles', 'Detail': 'geopolitical landscape of the 20th century', 'EB': {'Emotion': 'neutral'}, 'KB': {'Domain': 'World History'}, 'Time': '20th century', 'SB': {'Style': 'analytical'}, 'DLB': {'Detail': 'high'}, 'SDB': {'SensoryDetail': 'low'}, 'IB': {'Imagination': 'low'}, 'SLB': {'Politeness': 'formal'}, 'IntroB': {'Introduction': 'As a historian, I'd like to analyze...'}, 'PB': {'Prompt': 'Analyze the role and significance of the Treaty of Versailles in shaping the geopolitical landscape of the 20th century.'}}"
     ]
 }
 
